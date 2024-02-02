@@ -1,11 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import Nav from './Compoments/Nav/Navigation';
 
 function App() {
   return (
-    <div className="App">
-        <h1>Hello TuDuck</h1>
-    </div>
+    <Nav/>
   );
 }
 
