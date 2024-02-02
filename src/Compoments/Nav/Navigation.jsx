@@ -1,73 +1,61 @@
+import { useState } from 'react';
 import './Navigation.css'
+import { Link, NavLink } from 'react-router-dom';
 
 function Nav(props){
+  const [todolist,setTodolist] = useState(
+    [
+      {title:'Home',icon:'home-outline'},
+      {title:'Profile',icon:'person-outline'},
+      {title:'Inbox',icon:'chatbox-ellipses-outline'},
+      {title:'Analytics',icon:'bar-chart-outline'},
+      {title:'Order',icon:'cart-outline'},
+      {title:'Setting',icon:'settings-outline'},
+    ]
+    );
+
+    const navlist = todolist.map((item,index)=>{
+      return(
+        <li key={index}>
+            <NavLink to={`/${item}`}>
+              <div className='icon'><ion-icon name={`${item.icon}`}></ion-icon></div>
+              <div className='text'>{item.title}</div>
+            </NavLink>
+          </li>
+      );
+    })
+
     return(
     <nav className='sidebar'>
       <ul>
         <li className='logo'>
-          <a href='#'>
+          <Link to="/">
             <div className='icon'><ion-icon name="logo-apple"></ion-icon></div>
             <div className='text'>Website Logo</div>
-          </a>
+          </Link>
         </li>
         <div className='Menulist'>
-          <li className='active'>
-            <a href='#'>
-              <div className='icon'><ion-icon name="home-outline"></ion-icon></div>
-              <div className='text'>Home</div>
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              <div className='icon'><ion-icon name="person-outline"></ion-icon></div>
-              <div className='text'>Profile</div>
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              <div className='icon'><ion-icon name="cart-outline"></ion-icon></div>
-              <div className='text'>Inbox</div>
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              <div className='icon'><ion-icon name="bar-chart-outline"></ion-icon></div>
-              <div className='text'>Analytics</div>
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              <div className='icon'><ion-icon name="cart-outline"></ion-icon></div>
-              <div className='text'>Order</div>
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              <div className='icon'><ion-icon name="settings-outline"></ion-icon></div>
-              <div className='text'>Setting</div>
-            </a>
-          </li>
+          {navlist}
         </div>
         <div className='bottom'>
           <li>
-            <a href='#'>
+            <NavLink to="">
               <div className='icon'>
                 <div className='imgBx'>
                     <img src="#" alt=""></img>
                 </div>
               </div>
               <div className='text'>Student</div>
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href='#'>
+            <NavLink to="">
               <div className='icon'><ion-icon name="log-out-outline"></ion-icon></div>
               <div className='text'>Logout</div>
-            </a>
+            </NavLink>
           </li>
         </div>
       </ul>
-      <script src='./Naviagtion.js'></script>
     </nav>
     );
 }
