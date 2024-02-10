@@ -1,42 +1,30 @@
+<<<<<<< HEAD
 .App {
   text-align: center;
   
+=======
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+>>>>>>> a28b7ef346e02e2260688ac0a8c565af49a3450c
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.container .c-left{
+  width: 15%;
+  height: 100vh;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+<<<<<<< HEAD
 
 .header{
   background-color: #56a4fe;
@@ -112,3 +100,11 @@ li {
 
 
 
+=======
+.container .c-right{
+  position: relative;
+  width: 85%;
+  height: 100vh;
+  background-color: aqua;
+}
+>>>>>>> a28b7ef346e02e2260688ac0a8c565af49a3450c

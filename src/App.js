@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import logo from './logo.svg';
 import './App.css';
 import Login from './Compoments/Login';
@@ -95,6 +96,26 @@ function App() {
 
      </div>
         {/* <Login/> */}
+=======
+import Nav from './Compoments/Nav/Navigation';
+import {Route,Routes} from 'react-router-dom'
+import { Home } from './Compoments/Pages/Home';
+import './App.css'
+import Profile from './Compoments/Pages/proflle/Profile';
+
+function App() {
+  return (
+    <div className='container'>
+      <div className='c-left'>
+        <Nav/>
+      </div>
+      <div className='c-right'>
+      <Routes>
+        <Route path='/Home' element={<Home/>}></Route>
+        <Route path='/Profile' element={<Profile/>}></Route>
+      </Routes>
+      </div>
+>>>>>>> a28b7ef346e02e2260688ac0a8c565af49a3450c
     </div>
   );
 }
