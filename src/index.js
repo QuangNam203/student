@@ -3,27 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-<<<<<<< HEAD
-import AddStudent from './Compoments/AddStudent';
-import StudentManagement from './Compoments/StudentManagement';
-import ClassManagement from './Compoments/ClassManagement';
-=======
 import { BrowserRouter } from 'react-router-dom';
->>>>>>> a28b7ef346e02e2260688ac0a8c565af49a3450c
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<<<<<<< HEAD
-    {/* <App /> */}
-    {/* <AddStudent/> */}
-    {/* <StudentManagement/> */}
-    <ClassManagement/>
-=======
     <BrowserRouter>
       <App />
     </BrowserRouter>
->>>>>>> a28b7ef346e02e2260688ac0a8c565af49a3450c
   </React.StrictMode>
 );
 

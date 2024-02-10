@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import './Navigation.css'
 import { Link, NavLink } from 'react-router-dom';
@@ -17,7 +18,7 @@ function Nav(props){
     const navlist = todolist.map((item,index)=>{
       return(
         <li key={index}>
-            <NavLink to={`/${item}`}>
+            <NavLink to={`/${item.title}`}>
               <div className='icon'><ion-icon name={`${item.icon}`}></ion-icon></div>
               <div className='text'>{item.title}</div>
             </NavLink>
@@ -29,13 +30,13 @@ function Nav(props){
     <nav className='sidebar'>
       <ul>
         <li className='logo'>
-          <Link to="/">
+          <NavLink to="/">
             <div className='icon'><ion-icon name="logo-apple"></ion-icon></div>
             <div className='text'>Website Logo</div>
-          </Link>
+          </NavLink>
         </li>
         <div className='Menulist'>
-          {navlist}
+        {navlist}
         </div>
         <div className='bottom'>
           <li>

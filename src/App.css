@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-.App {
-  text-align: center;
-  
-=======
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
 *{
   margin: 0;
@@ -10,9 +5,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   position: relative;
->>>>>>> a28b7ef346e02e2260688ac0a8c565af49a3450c
 }
-
 .container{
   width: 100%;
   top: 0;
@@ -24,87 +17,9 @@
   width: 15%;
   height: 100vh;
 }
-<<<<<<< HEAD
-
-.header{
-  background-color: #56a4fe;
-  width: 100%;
-  min-height: 88px;
-  position: relative;
-  margin-top: 50;
-}
-
-.infor-navbar{
-  border-bottom-left-radius: 75px;
-  width: 50%;
-  height: 30px;
-  margin-left: 50%;
-  background-color: aliceblue;
-  display: block;
-
-}
-.search{
-  width: 400px;
-  height: 100%;
-  position: relative;
-}
-.search-text{
-  color: aliceblue;
-  margin-top: 10px;
-  position: relative;
-}
-.search-input{
-  border-radius: 4px;
-  width: 300px;
-}
-.search-btn{
-  color: rgb(13, 0, 134);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.body{
-width: 100%;
-height: 1000px;
-float: left;
-display: block;
-}
-.navbar{
-  width: 400px;
-  height: 50px;
-  float: right;
-  border-radius: 20px;
-}
-.body-children{
-  display: flex;
-  padding-top: 26px;
-  width: 100%;
-}
-.left-home{
-  float: left;
-}
-li {
-  list-style-type: none;
-  
-}
-.bg-body-tertiary :hover{
-  background-color: rgb(111, 190, 239);
-  color: white
-}
-.content-home{
-  width: 100%;
-  height: 100%;
-  float: right;
-}
-
-
-
-
-=======
 .container .c-right{
   position: relative;
   width: 85%;
   height: 100vh;
   background-color: aqua;
 }
->>>>>>> a28b7ef346e02e2260688ac0a8c565af49a3450c
