@@ -1,6 +1,8 @@
+import Table from "../../Table/table";
+
 function Profile(){
     return(
-        <h1>Profile</h1>
+        <Table/>
     );
 }
 export default Profile;

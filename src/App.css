@@ -4,7 +4,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  position: relative;
+  /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 .container{
   width: 100%;
@@ -16,10 +18,10 @@
 .container .c-left{
   width: 15%;
   height: 100vh;
+  position: relative;
 }
 .container .c-right{
-  position: relative;
   width: 85%;
   height: 100vh;
-  background-color: aqua;
+  position: relative;
 }
