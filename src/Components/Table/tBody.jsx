@@ -1,29 +1,31 @@
+import { memo } from "react";
 
 function TBody(props){
     const colunmList = props.TitleColunm.map(
-        (item,index)=>
+        (item,index)=>(
             <th key={index}>
                 {item.title}
-            </th>
+                <ion-icon name="arrow-up-outline"></ion-icon>
+            </th>)
         )
     
     const dataList = props.datdRow.map(
-        (item,index)=>
+        (item,index)=>(
             <tr key={index}>
                 <td> {index} </td>
                 <td> <img className="img" src="../../images/Alex Gonley.jpg" alt=""></img> {item.Customer}</td>
                 <td> {item.Location}</td>
                 <td>  {item.OrderDate} </td>
                 <td>
-                    <p class="status delivered"> {item.Status}</p>
+                    <p className="status delivered"> {item.Status}</p>
                 </td>
                 <td> <strong>  {item.Amount} </strong></td>
-            </tr>
+            </tr>)
         )    
 
     return(
         <>
-            <section class="table__body">
+            <section className="table__body">
                 <table>
                     <thead>
                         <tr>
@@ -38,4 +40,4 @@ function TBody(props){
         </>
     );
 }
-export default TBody;
+export default memo(TBody);

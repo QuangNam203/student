@@ -6,19 +6,20 @@ import Profile from './Components/Pages/profile/Profile';
 // import SignInUpForm from './Components/Pages/Login/SignInUpForm';
 
 
- function App() {
+function App() {
   return (
-    // <SignInUpForm/>
     <div className='container'>
       <div className='c-left'>
         <Nav/>
       </div>
       <div className='c-right'>
+    
       <Routes>
-        <Route path='/Home' element={<Home/>}></Route>
+        <Route path='/' element={<Home/>}></Route>
         <Route path='/Profile' element={<Profile/>}></Route>
-      </Routes> 
-       </div>
+        </Routes> 
+    
+      </div>
     </div>
   );
 }

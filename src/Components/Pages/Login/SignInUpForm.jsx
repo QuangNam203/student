@@ -68,27 +68,27 @@ function SignInUpForm(){
             alert(JSON.stringify(values, null, 2));
         }}
     >
-      <div class="container">
-        <div class="signin-signup">
+      <div className="container">
+        <div className="signin-signup">
             <SignInComponent SignUpBtn2={handlchangeSignUpBtn2}/>
             <SignUpComponent SignInBtn2={handlchangeSignInBtn2}/>
             </div>
-            <div class="panels-container">
-                <div class="panel left-panel">
-                    <div class="content">
+            <div className="panels-container">
+                <div className="panel left-panel">
+                    <div className="content">
                         <h3>Member of Brand?</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
-                        <button class="btn" id="sign-in-btn" onClick={handleChangeSignIn}>Sign in</button>
+                        <button className="btn" id="sign-in-btn" onClick={handleChangeSignIn}>Sign in</button>
                     </div>
-                    <img src="signin.svg" alt="" class="image"/>
+                    <img src="signin.svg" alt="" className="image"/>
                 </div>
-                    <div class="panel right-panel">
-                        <div class="content">
+                    <div className="panel right-panel">
+                        <div className="content">
                             <h3>New to Brand?</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
-                            <button class="btn" id="sign-up-btn" onClick={handleChangeSignUp}>Sign up</button>
+                            <button className="btn" id="sign-up-btn" onClick={handleChangeSignUp}>Sign up</button>
                         </div>
-                        <img src="signup.svg" alt="" class="image"/>
+                        <img src="signup.svg" alt="" className="image"/>
                     </div>
                 </div>
             </div>

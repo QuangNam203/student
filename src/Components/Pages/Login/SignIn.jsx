@@ -37,10 +37,10 @@ function SignInComponent(props) {
             }}
         >
             <Form className='sign-in-form'>
-                    <h2 class="title">Sign in</h2>
+                    <h2 className="title">Sign in</h2>
                     <FastField name="username">
                     {({ field, form, meta }) => (
-                        <div class="input-field">
+                        <div className="input-field">
                         <ion-icon name="person"></ion-icon>
                         <input type="text" placeholder="Username" {...field}/>
                         {meta.touched && meta.error && <div className='error'>{meta.error}</div>}
@@ -49,30 +49,30 @@ function SignInComponent(props) {
                     </FastField>
                     <FastField name="password">
                     {({ field, form, meta }) => (
-                        <div class="input-field">
+                        <div className="input-field">
                         <ion-icon name="lock-closed"></ion-icon>
                         <input type="password" placeholder="Password" {...field}/>
                         {meta.touched && meta.error && <div className='error'>{meta.error}</div>}
                         </div>
                     )}
                     </FastField>
-                    <input type="submit" value="Login" class="btn"/>
-                    <p class="social-text">Or Sign in with social platform</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
+                    <input type="submit" value="Login" className="btn"/>
+                    <p className="social-text">Or Sign in with social platform</p>
+                    <div className="social-media">
+                        <a href="#" className="social-icon">
                         <ion-icon name="logo-facebook"></ion-icon>
                         </a>
-                        <a href="" class="social-icon">
+                        <a href="" className="social-icon">
                         <ion-icon name="logo-twitter"></ion-icon>
                         </a>
-                        <a href="" class="social-icon">
+                        <a href="" className="social-icon">
                         <ion-icon name="logo-google"></ion-icon>
                         </a>
-                        <a href="" class="social-icon">
+                        <a href="" className="social-icon">
                         <ion-icon name="logo-instagram"></ion-icon>
                         </a>
                     </div>
-                    <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2" onClick={()=>props.SignUpBtn2()}>Sign Up</a></p>
+                    <p className="account-text">Don't have an account? <a href="#" id="sign-up-btn2" onClick={()=>props.SignUpBtn2()}>Sign Up</a></p>
                 </Form>
             </Formik>
     );

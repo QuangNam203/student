@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import './Navigation.css'
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Nav(props){
   const [todolist,setTodolist] = useState(
@@ -18,10 +17,10 @@ function Nav(props){
     const navlist = todolist.map((item,index)=>{
       return(
         <li key={index}>
-            <NavLink to={`/${item.title}`}>
+            <Link to={`/${item.title}`}>
               <div className='icon'><ion-icon name={`${item.icon}`}></ion-icon></div>
               <div className='text'>{item.title}</div>
-            </NavLink>
+            </Link>
           </li>
       );
     })
@@ -30,30 +29,30 @@ function Nav(props){
     <nav className='sidebar'>
       <ul>
         <li className='logo'>
-          <NavLink to="/">
+          <Link to="/">
             <div className='icon'><ion-icon name="logo-apple"></ion-icon></div>
             <div className='text'>Website Logo</div>
-          </NavLink>
+          </Link>
         </li>
         <div className='Menulist'>
         {navlist}
         </div>
         <div className='bottom'>
           <li>
-            <NavLink to="">
+            <Link to="">
               <div className='icon'>
                 <div className='imgBx'>
                     <img src="#" alt=""></img>
                 </div>
               </div>
               <div className='text'>Student</div>
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="">
+            <Link to="">
               <div className='icon'><ion-icon name="log-out-outline"></ion-icon></div>
               <div className='text'>Logout</div>
-            </NavLink>
+            </Link>
           </li>
         </div>
       </ul>

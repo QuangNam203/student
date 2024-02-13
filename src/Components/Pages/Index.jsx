@@ -1,8 +1,8 @@
 import Table from "../Table/Table";
 
-function Home(){
+function Index(){
     return(
         <Table/>
     );
 }
-export default Home;
+export default Index;
