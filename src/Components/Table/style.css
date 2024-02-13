@@ -74,7 +74,7 @@ main.table {
     box-shadow: 0 .1rem .4rem #0002;
 }
 
-.table__header .input-group img {
+.table__header .input-group ion-icon {
     width: 1.2rem;
     height: 1.2rem;
 }
@@ -120,7 +120,7 @@ table {
     width: 100%;
 }
 
-td img {
+td .img {
     width: 36px;
     height: 36px;
     margin-right: .5rem;

@@ -1,4 +1,4 @@
-import Table from "../../Table/table";
+import Table from "../../Table/Table";
 
 function Profile(){
     return(

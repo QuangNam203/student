@@ -1,37 +1,17 @@
-import { useState } from "react";
 
-function tBody(props){
-
-    const [TitleColunm,setTitleColunm] = useState([
-        {title:'Id'},{title:'Customer'},{title:'Location'},{title:'Order Date'},{title:'Status'},{title:'Amount'},
-    ]);
-    const [datdRow, setDataRow] = useState([
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-    ])
-
-    const colunmList = TitleColunm.map(
+function TBody(props){
+    const colunmList = props.TitleColunm.map(
         (item,index)=>
             <th key={index}>
                 {item.title}
             </th>
         )
     
-    const dataList = datdRow.map(
+    const dataList = props.datdRow.map(
         (item,index)=>
             <tr key={index}>
                 <td> {index} </td>
-                <td> <img src="" alt=""></img> {item.Customer}</td>
+                <td> <img className="img" src="../../images/Alex Gonley.jpg" alt=""></img> {item.Customer}</td>
                 <td> {item.Location}</td>
                 <td>  {item.OrderDate} </td>
                 <td>
@@ -58,4 +38,4 @@ function tBody(props){
         </>
     );
 }
-export default tBody;
+export default TBody;

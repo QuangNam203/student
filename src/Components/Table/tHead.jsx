@@ -1,11 +1,14 @@
-function tHead(props){
+function THead(props){
+
+    
+
     return(
         <>
             <section class="table__header">
                 <h1>{props.title}</h1>
                     <div class="input-group">
-                        <input type="search" placeholder="Search Data..."></input>
-                        <img src="" alt=""></img>
+                        <input type="search" placeholder="Search Data..." onChange={()=>props.handleInput()}></input>
+                        <ion-icon name="search-outline"></ion-icon>
                     </div>
                 <div class="export__file">
                     <label for="export-file" class="export__file-btn" title="Export File"></label>
@@ -23,4 +26,4 @@ function tHead(props){
     );
 }
 
-export default tHead;
+export default THead;
