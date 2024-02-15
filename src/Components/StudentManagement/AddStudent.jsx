@@ -3,6 +3,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
+import './AddStudent.css'
+
 function AddStudent() {
   return (
       <Form className='form_add' >

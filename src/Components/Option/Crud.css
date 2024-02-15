@@ -1,0 +1,22 @@
+.option{
+    float: left;
+
+}
+.hinden_content {
+    width: 500px; /* Độ rộng của phần tử */
+    height: 100%; /* Chiều cao của phần tử */
+    background-color: #f0f0f0; /* Màu nền */
+    position: absolute; /* Định vị tuyệt đối */
+    right: -200px; /* Đẩy phần tử ra khỏi phần hiển thị ban đầu */
+    top: 50%; /* Canh lề trên theo chiều dọc */
+    transform: translateY(-50%); /* Dịch chuyển theo chiều dọc để căn giữa */
+    animation: slideFromRight 0.5s forwards; /* Sử dụng animation slideFromRight trong 0.5s */background-color: #fff5;
+
+  }
+  
+  @keyframes slideFromRight {
+    to {
+      right: 0; /* Đưa phần tử về vị trí ban đầu */
+    }
+  }
+  

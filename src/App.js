@@ -3,6 +3,8 @@ import Nav from './Components/Nav/Navigation';
 import Home from './Components/Pages/Home';
 import {Routes, Route} from 'react-router-dom';
 import Profile from './Components/Pages/profile/Profile';
+
+import Crud from './Components/Option/Crud';
 // import SignInUpForm from './Components/Pages/Login/SignInUpForm';
 
 
