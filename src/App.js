@@ -3,24 +3,25 @@ import Nav from './Components/Nav/Navigation';
 import Home from './Components/Pages/Home';
 import {Routes, Route} from 'react-router-dom';
 import Profile from './Components/Pages/profile/Profile';
-// import SignInUpForm from './Components/Pages/Login/SignInUpForm';
+import SignInUpForm from './Components/Pages/Login/SignInUpForm';
 
 
 function App() {
   return (
-    <div className='container'>
-      <div className='c-left'>
-        <Nav/>
-      </div>
-      <div className='c-right'>
+    <SignInUpForm/>
+    // <div className='container'>
+    //   <div className='c-left'>
+    //     <Nav/>
+    //   </div>
+    //   <div className='c-right'>
     
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/Profile' element={<Profile/>}></Route>
-        </Routes> 
+    //   <Routes>
+    //     <Route path='/Home' element={<Home/>}></Route>
+    //     <Route path='/Profile' element={<Profile/>}></Route>
+    //     </Routes> 
     
-      </div>
-    </div>
+    //   </div>
+    // </div>
   );
 }
 

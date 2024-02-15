@@ -40,4 +40,4 @@ function TBody(props){
         </>
     );
 }
-export default memo(TBody);
+export default TBody;

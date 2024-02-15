@@ -25,4 +25,4 @@ function THead(props){
     );
 }
 
-export default memo(THead);
+export default THead;

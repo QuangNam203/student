@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './Navigation.css'
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { selectUser } from '../../Redux/selectors/userSelector';
 
 function Nav(props){
   const [todolist,setTodolist] = useState(
@@ -59,5 +61,11 @@ function Nav(props){
     </nav>
     );
 }
+const mapStateToProps = state =>{
+  return{
+    user: selectUser(state)
+  }
+}
 
-export default Nav;
+
+export default connect(mapStateToProps,null)(Nav);

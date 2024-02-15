@@ -1,9 +1,19 @@
 import { Formik, Field, Form, ErrorMessage, FastField } from 'formik';
 import * as Yup from 'yup';
 import Alert from '@mui/material/Alert';
-import { memo } from 'react';
+import { memo, useState } from 'react';
+import { connect } from "react-redux";
+import { wait } from '@testing-library/user-event/dist/utils';
+import loginAPI from '../../../api/Login/LoginAPI';
+import storage from '../../../api/Storage';
+import { setUserInFo, setUserToken } from '../../../Redux/reducers/userSlice';
+import { selectName, selectToken, selectUser } from '../../../Redux/selectors/userSelector';
 
 function SignInComponent(props) {
+
+    const [email, setEmail] = useState("");
+    const [checkRememberMe,setCheckRememberMe] = useState(storage.isRememberME());
+
     return(
         <Formik
             initialValues={
@@ -32,11 +42,48 @@ function SignInComponent(props) {
             })}
             validateOnChange={false}
             validateOnBlur={false}
-            onSubmit={(values)=>{
-                alert(JSON.stringify(values, null, 2));
+            onSubmit={ async (values) => {
+                try {
+                    const result = await loginAPI.login(
+                        values.username,
+                        values.password);
+              
+                    console.log(result);
+                   
+                   
+                    if(result.token === null || result.token === undefined){
+                        // form active user
+                    }
+                    else
+                    {
+                        // set Remember me
+                        
+                        // save token storage
+                        storage.setToken(result.token)
+                        // save userInfo storage
+                        storage.setUserInfo(
+                        result.userName,
+                        result.email,
+                        result.name,
+                        result.role,
+                        result.status)
+                        // save token & userInFo to redux
+                        props.setUserInFo(storage.getUserInfo());
+                        props.setUserToken(storage.getToken());
+
+                       
+                       console.log(props.users);
+                       console.log(props.token);
+                    }
+                } catch (error) {
+                    if(error.status === 401){
+
+                    }
+                }
             }}
         >
-            <Form className='sign-in-form'>
+            {({isSubmitting, validateField,validateForm}) =>(
+                <Form className='sign-in-form'>
                     <h2 className="title">Sign in</h2>
                     <FastField name="username">
                     {({ field, form, meta }) => (
@@ -51,12 +98,12 @@ function SignInComponent(props) {
                     {({ field, form, meta }) => (
                         <div className="input-field">
                         <ion-icon name="lock-closed"></ion-icon>
-                        <input type="password" placeholder="Password" {...field}/>
+                        <input type="text" placeholder="Password" {...field}/>
                         {meta.touched && meta.error && <div className='error'>{meta.error}</div>}
                         </div>
                     )}
                     </FastField>
-                    <input type="submit" value="Login" className="btn"/>
+                    <input type="submit" value="Login" className="btn" disabled={()=>isSubmitting}/>
                     <p className="social-text">Or Sign in with social platform</p>
                     <div className="social-media">
                         <a href="#" className="social-icon">
@@ -74,8 +121,17 @@ function SignInComponent(props) {
                     </div>
                     <p className="account-text">Don't have an account? <a href="#" id="sign-up-btn2" onClick={()=>props.SignUpBtn2()}>Sign Up</a></p>
                 </Form>
-            </Formik>
+            )}   
+        </Formik>
     );
 }
 
-export default memo(SignInComponent);
+const mapGlobalStateToProps = state => {
+    return {
+        token: selectToken(state),
+        name: selectName(state),
+        users: selectUser(state)
+    };
+};
+
+export default connect(mapGlobalStateToProps ,{ setUserInFo , setUserToken })(SignInComponent);
