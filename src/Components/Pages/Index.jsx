@@ -1,8 +1,7 @@
-import Table from "../Table/Table";
-
+import Ttable from "../Table/Ttable";
 function Index(){
     return(
-        <Table/>
+        <Ttable/>
     );
 }
 export default Index;

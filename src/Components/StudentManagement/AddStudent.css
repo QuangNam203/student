@@ -1,0 +1,17 @@
+.form_add {
+        margin: 0 auto; /* căn giữa theo chiều ngang */
+        text-align: center; /* căn giữa văn bản bên trong phần tử div */
+        justify-content: center;
+        display: flex;
+        width: 300px;
+        height:fit-content;
+        float: right;
+    
+}
+.form_add .mb-3{
+        margin: 0 auto; /* căn giữa theo chiều ngang */
+        text-align: center; /* căn giữa văn bản bên trong phần tử div */
+        justify-content: center;
+        display: flex;
+
+}

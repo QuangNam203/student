@@ -1,8 +1,9 @@
-import Table from "../Table/Table";
-
+import AddStudent from "../StudentManagement/AddStudent";
+import Ttable from "../Table/Ttable";
 function Home(){
     return(
-        <Table/>
+        <Ttable />
+        // <AddStudent/>
     );
 }
 export default Home;

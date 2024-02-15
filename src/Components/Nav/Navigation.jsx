@@ -6,11 +6,11 @@ function Nav(props){
   const [todolist,setTodolist] = useState(
     [
       {title:'Home',icon:'home-outline'},
-      {title:'Profile',icon:'person-outline'},
-      {title:'Inbox',icon:'chatbox-ellipses-outline'},
-      {title:'Analytics',icon:'bar-chart-outline'},
-      {title:'Order',icon:'cart-outline'},
-      {title:'Setting',icon:'settings-outline'},
+      {title:'Student',icon:'person-outline'},
+      {title:'Score',icon:'chatbox-ellipses-outline'},
+      {title:'Class',icon:'bar-chart-outline'},
+      {title:'Subject',icon:'cart-outline'},
+      {title:'Price',icon:'settings-outline'},
     ]
     );
 

@@ -36,7 +36,7 @@ function sortTable(column, sort_asc){
         .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
 }
 
-function Table(){
+function Ttable(){
 
     
     const [TitleColunms,SetTitleColunm] = useState([
@@ -73,7 +73,7 @@ function Table(){
     }
 
     return(
-            <main class="table" id="customers_table">
+            <main className="table" id="customers_table">
                 <THead 
                     title={"Managament"} 
                     handleInput={searchTable}/>
@@ -83,4 +83,4 @@ function Table(){
     );
 }
 
-export default Table;
+export default Ttable;
