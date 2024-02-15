@@ -23,22 +23,19 @@ const getItem = (key)=>{
         sessionStorage.getItem(key);
     } 
 }
-
-
 const setToken = (token)=>{
-    setItem('token',token);
+    localStorage.setItem('token',token);
 }
-
 const getToken = ()=>{
-    return getItem('token');
+    return localStorage.getItem('token');
 }
 
 const setUserInfo = (username,email,name,role,status)=>{
-    setItem('username',username);
-    setItem('email',email);
-    setItem('name',name);
-    setItem('role',role);
-    setItem('status',status);
+    localStorage.setItem('username',username);
+    localStorage.setItem('email',email);
+    localStorage.setItem('name',name);
+    localStorage.setItem('role',role);
+    localStorage.setItem('status',status);
 }
 
 const getUserInfo = ()=>{

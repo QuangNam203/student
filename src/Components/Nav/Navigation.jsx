@@ -1,29 +1,30 @@
 import { useState } from 'react';
 import './Navigation.css'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 import { selectUser } from '../../Redux/selectors/userSelector';
+import { publicRoutes } from '../../routers';
 
 function Nav(props){
   const [todolist,setTodolist] = useState(
     [
-      {title:'Home',icon:'home-outline'},
-      {title:'Profile',icon:'person-outline'},
-      {title:'Inbox',icon:'chatbox-ellipses-outline'},
-      {title:'Analytics',icon:'bar-chart-outline'},
-      {title:'Order',icon:'cart-outline'},
-      {title:'Setting',icon:'settings-outline'},
+      {title:'Home',icon:'home-outline',name:'Home'},
+      {title:'Student',icon:'people-outline',name:'Student'},
+      {title:'Score',icon:'chatbox-ellipses-outline',name:'Score'},
+      {title:'Slass',icon:'home-outline',name:'Class'},
+      {title:'Subject',icon:'library-outline',name:'Subject'},
+      {title:'Price',icon:'pricetag-outline',name:'Price'},
     ]
     );
 
     const navlist = todolist.map((item,index)=>{
       return(
         <li key={index}>
-            <Link to={`/${item.title}`}>
-              <div className='icon'><ion-icon name={`${item.icon}`}></ion-icon></div>
-              <div className='text'>{item.title}</div>
-            </Link>
-          </li>
+          <NavLink to={`/${item.title}`}>
+            <div className='icon'><ion-icon name={`${item.icon}`}></ion-icon></div>
+            <div className='text'>{item.name}</div>
+          </NavLink>
+        </li>
       );
     })
 
@@ -31,30 +32,30 @@ function Nav(props){
     <nav className='sidebar'>
       <ul>
         <li className='logo'>
-          <Link to="/">
+          <NavLink to="/">
             <div className='icon'><ion-icon name="logo-apple"></ion-icon></div>
             <div className='text'>Website Logo</div>
-          </Link>
+          </NavLink>
         </li>
         <div className='Menulist'>
         {navlist}
         </div>
         <div className='bottom'>
           <li>
-            <Link to="">
+            <NavLink to="">
               <div className='icon'>
                 <div className='imgBx'>
                     <img src="#" alt=""></img>
                 </div>
               </div>
               <div className='text'>Student</div>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="">
+            <NavLink to="">
               <div className='icon'><ion-icon name="log-out-outline"></ion-icon></div>
               <div className='text'>Logout</div>
-            </Link>
+            </NavLink>
           </li>
         </div>
       </ul>

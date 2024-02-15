@@ -1,33 +1,30 @@
+// import SignInUpForm from '../Components/Pages/Login/SignInUpForm'
+// import Profile from '../Components/Pages/Profile/Profile'
+// import withAuth from '../HOC/withAuth'
 import Home from "../Components/Pages/Home"
 import SignInUpForm from "../Components/Pages/Login/SignInUpForm"
-import Profile from "../Components/Pages/profile/Profile"
-import withAuth from "../HOC/withAuth"
+import Table from "../Components/Table/Table"
 
-const publicRoutes = [
+
+export const publicRoutes = [
     {
-        path: "/login",
-        name: "Login",
-        element: SignInUpForm
+        path: '/',
+        element: Table,
     },
     {
-        path: "/",
-        name: "Home",
-        element: Home
+        path: '/Home',
+        element: Home,
+    },{
+        path: '/Login',
+        element: SignInUpForm,
     },
-    {
-        path: "/Profile",
-        name: "Profile",
-        element: Profile
-    }
 ]
 
 // private Routes
-const privateRoutes = [
+export const privateRoutes = [
     {
-        path: "/main/login",
-        name: "Login",
-        element: withAuth(SignInUpForm)
+        path: '/main/login',
+        name: 'Login',
+        element:''
     }
 ]
-
-export { publicRoutes , privateRoutes}

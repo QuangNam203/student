@@ -1,8 +1,7 @@
-import Table from "../Table/Table";
-
 function Home(){
     return(
-        <Table/>
+        <div>Home</div>
     );
 }
+
 export default Home;

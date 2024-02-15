@@ -8,12 +8,13 @@ import loginAPI from '../../../api/Login/LoginAPI';
 import storage from '../../../api/Storage';
 import { setUserInFo, setUserToken } from '../../../Redux/reducers/userSlice';
 import { selectName, selectToken, selectUser } from '../../../Redux/selectors/userSelector';
+import { useNavigate } from 'react-router-dom';
 
 function SignInComponent(props) {
 
     const [email, setEmail] = useState("");
     const [checkRememberMe,setCheckRememberMe] = useState(storage.isRememberME());
-
+    const history = useNavigate();
     return(
         <Formik
             initialValues={
@@ -47,10 +48,7 @@ function SignInComponent(props) {
                     const result = await loginAPI.login(
                         values.username,
                         values.password);
-              
-                    console.log(result);
-                   
-                   
+            
                     if(result.token === null || result.token === undefined){
                         // form active user
                     }
@@ -70,10 +68,8 @@ function SignInComponent(props) {
                         // save token & userInFo to redux
                         props.setUserInFo(storage.getUserInfo());
                         props.setUserToken(storage.getToken());
-
-                       
-                       console.log(props.users);
-                       console.log(props.token);
+                      
+                        history("/");
                     }
                 } catch (error) {
                     if(error.status === 401){

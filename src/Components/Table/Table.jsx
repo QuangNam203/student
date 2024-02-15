@@ -1,10 +1,7 @@
-import './style.css'
-import { useCallback,useMemo,useState } from "react";
+import { useCallback,useEffect,useMemo,useState } from "react";
 import THead from './THead';
 import TBody from './TBody';
-
-
-
+import studentAPI from "../../api/student/StudentAPI";
 
 function Table(){
     
@@ -13,22 +10,19 @@ function Table(){
         table_headings = document.querySelectorAll('thead th');
     
     const [TitleColunms,SetTitleColunm] = useState([
-        {title:'Id'},{title:'Customer'},{title:'Location'},{title:'Order Date'},{title:'Status'},{title:'Amount'},
+        'ID','Lớp','Họ Tên','Ngày Sinh','Giới Tính','SĐT','Email','Ngành',
     ]);
-    const [DatdRows, SetDataRow] = useState([
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Jeet Saru',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Sonal Gharti',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'VN',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Alson GC',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'VN',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'VN',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'UK',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-        {Customer:'Zinzu Chan Lee',Location:'Seoul',OrderDate:'17 Dec, 2022',Status:'Delivered',Amount:'$128.90'},
-    ])
+    const [DatdRows, SetDataRow] = useState([])
+        
+    useEffect(()=>{
+        const getAllStudent = async ()=>{
+            const result = await studentAPI.getAll();
+            console.log(result);
+
+            SetDataRow(result.content);
+        }
+        getAllStudent();
+    },[])
 
     const searchTable = ()=> {
         table_rows.forEach((row, i) => {

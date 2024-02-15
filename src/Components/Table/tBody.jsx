@@ -4,7 +4,7 @@ function TBody(props){
     const colunmList = props.TitleColunm.map(
         (item,index)=>(
             <th key={index}>
-                {item.title}
+                {item}
                 <ion-icon name="arrow-up-outline"></ion-icon>
             </th>)
         )
@@ -12,14 +12,18 @@ function TBody(props){
     const dataList = props.datdRow.map(
         (item,index)=>(
             <tr key={index}>
-                <td> {index} </td>
-                <td> <img className="img" src="../../images/Alex Gonley.jpg" alt=""></img> {item.Customer}</td>
-                <td> {item.Location}</td>
-                <td>  {item.OrderDate} </td>
-                <td>
-                    <p className="status delivered"> {item.Status}</p>
+                <td> {item.id} </td>
+                <td> {item.className}</td>
+                <td> {item.name}</td>
+                <td> {item.dateOfBirth} </td>
+                <td> {item.sex}</td>
+                <td> {item.sdt}</td>
+                <td> {item.email}</td>
+                <td> {item.course}</td>
+                <td> 
+                    <ion-icon key={item.id} name="create-outline"></ion-icon> 
+                    <ion-icon key={item.id} name="trash-outline"></ion-icon>
                 </td>
-                <td> <strong>  {item.Amount} </strong></td>
             </tr>)
         )    
 
@@ -30,6 +34,7 @@ function TBody(props){
                     <thead>
                         <tr>
                             {colunmList}
+                            <th>Chức Năng</th>
                         </tr>
                     </thead>
                     <tbody>
