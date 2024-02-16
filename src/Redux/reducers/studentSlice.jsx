@@ -6,7 +6,8 @@ const studentSlice = createSlice({
         students:[],
         page:1,
         size:10,
-        totalSize:1
+        totalSize:1,
+        search:''
     },
     reducers:{
         setListStudents: (state,action)=>{
@@ -21,12 +22,15 @@ const studentSlice = createSlice({
         setTotalSizeStudents: (state,action)=>{
             state.totalSize = action.payload;
         },
+        setSearchStudents: (state,action)=>{
+            state.search = action.payload;
+        },
     },
     // extraReducers:{
     //     // request pending , fulling
     //}
 })
 export const { actions, reducer } = studentSlice;
-export const { setListStudents,setPageStudents,setSizeStudents,setTotalSizeStudents } = actions
+export const { setListStudents,setPageStudents,setSizeStudents,setTotalSizeStudents, setSearchStudents } = actions
 
 export default studentSlice;

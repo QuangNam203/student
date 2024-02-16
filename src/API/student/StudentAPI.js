@@ -2,12 +2,16 @@ import Api from '../Api';
 
 const url = "/student";
 
-const getAll = (page = 1,size = 10,sortFiled = 'id',sortType = 'desc') => {
+const getAll = (page = 1,size = 10,sortFiled = 'id',sortType = 'desc',search ='') => {
     const parameters = {
         page,
         size, // <=> size:size
         sort :`${sortFiled},${sortType}`
     }
+    if(search){
+        parameters.search = search;
+    }
+
     return Api.get(`${url}`, {params: parameters});
 };
 

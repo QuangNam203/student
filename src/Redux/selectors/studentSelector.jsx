@@ -18,6 +18,10 @@ const selectTotalSizeSelector = createSelector(
     studentSelector,
     state => state.totalSize);
 
+const selectSearchSelector = createSelector(
+    studentSelector,
+    state => state.search);
+
 export const selectStudents = (state)=>{
     return selectUserSelector(state);
 }
@@ -29,4 +33,7 @@ export const selectSize = (state)=>{
 }
 export const selectTotalSize = (state)=>{
     return selectTotalSizeSelector(state);
+}
+export const selectSearch = (state)=>{
+    return selectSearchSelector(state);
 }

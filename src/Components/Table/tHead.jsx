@@ -1,12 +1,27 @@
-import { memo} from "react";
+import { memo, useMemo, useRef} from "react";
+import { connect } from "react-redux";
+import { setSearchStudents } from "../../Redux/reducers/studentSlice";
 
-function THead(props){  
+function THead(props){
+    
+    let inputRef = useRef();
+    const handleEventEnter = (event)=>{
+        if(event.key === 'Enter'){
+            props.handleInput(inputRef.current.value);
+        }
+    }
+
     return(
         <>
             <section className="table__header">
-                <h1>{props.title}</h1>
+                <h1>Managament</h1>
                     <div className="input-group">
-                        <input type="search" placeholder="Search Data..."></input>
+                        <input 
+                            type="search" 
+                            placeholder="Search Data..." 
+                            ref={inputRef}
+                            onKeyDown={handleEventEnter}
+                        ></input>
                         <ion-icon name="search-outline"></ion-icon>
                     </div>
                 <div className="export__file">
@@ -25,4 +40,6 @@ function THead(props){
     );
 }
 
-export default THead;
+
+
+export default connect(null,{setSearchStudents})(THead);

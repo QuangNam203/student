@@ -24,17 +24,7 @@ function App() {
         })}
       </Routes>
     </>
-  // <div className='container'>
-  //   <div className='c-left'>
-  //     <Nav/>
-  //   </div>
-  //   <div className='c-right'>
-  //   <Routes>
-  //     <Route path='/' element={<Index/>}></Route>
-  //     <Route path='/Student' element={<Profile/>}></Route>
-  //   </Routes>
-  //   </div>
-  // </div>
+    // <CustomSearch/>
   );
 }
 

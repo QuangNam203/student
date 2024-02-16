@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { selectPage, selectStudents } from "../../Redux/selectors/studentSelector";
 import { setListStudents } from "../../Redux/reducers/studentSlice";
 import studentAPI from "../../API/student/StudentAPI";
+import { TableBody } from '@mui/material';
+import { Table } from '@mui/material';
+import { TableCell } from '@mui/material';
+import { TableRow } from '@mui/material';
+
 function TBody(props){
 
     const [TitleColunms,SetTitleColunm] = useState([
@@ -42,7 +47,7 @@ function TBody(props){
     
     const dataList = props.datdRow.map(
         (item,index)=>(
-            <tr key={index}>
+            <TableRow key={index}>
                 <td key={index}> {item.id} </td>
                 <td key={index}> {item.className}</td>
                 <td key={index}> <Avatar className="img"></Avatar>{item.name}</td>
@@ -55,22 +60,22 @@ function TBody(props){
                     <ion-icon  name="create-outline"></ion-icon> 
                     <ion-icon  name="trash-outline"></ion-icon>
                 </td> */}
-            </tr>)
+            </TableRow>)
         )    
 
     return(
         <>
             <section className="table__body">
-                <table>
+                <Table >
                     <thead>
                         <tr>
                             {colunmList}
                         </tr>
                     </thead>
-                    <tbody>
+                    <TableBody >
                         {dataList}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
             </section>
         </>
     );
