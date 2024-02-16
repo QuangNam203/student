@@ -40,11 +40,11 @@ const setUserInfo = (username,email,name,role,status)=>{
 
 const getUserInfo = ()=>{
     return {
-        username: getItem('username'),
-        email:getItem('email'),
-        name: getItem('name'),
-        role: getItem('role'),
-        status: getItem('status')
+        username: localStorage.getItem('username'),
+        email:localStorage.getItem('email'),
+        name: localStorage.getItem('name'),
+        role: localStorage.getItem('role'),
+        status: localStorage.getItem('status')
     };
 }
 

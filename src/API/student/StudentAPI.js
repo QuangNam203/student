@@ -2,8 +2,13 @@ import Api from '../Api';
 
 const url = "/student";
 
-const getAll = () => {
-    return Api.get(url);
+const getAll = (page = 1,size = 10,sortFiled = 'id',sortType = 'desc') => {
+    const parameters = {
+        page,
+        size, // <=> size:size
+        sort :`${sortFiled},${sortType}`
+    }
+    return Api.get(`${url}`, {params: parameters});
 };
 
 const getByID = (id) => {
@@ -28,14 +33,7 @@ const deleteByID = (id) => {
     return Api.delete(`${url}/${id}`);
 }
 
-const resendEmailToActiveAccount = (email) =>{
-    const parameters = {
-        email: email
-    }
-    return Api.get(`${url}/accountResendEmailRequest`, {params: parameters});
-}
-
 // export
-const studentAPI = { getAll, getByID, create, updateByID, deleteByID }
+const studentAPI = {getAll, getByID, create, updateByID, deleteByID }
 export default studentAPI;
 

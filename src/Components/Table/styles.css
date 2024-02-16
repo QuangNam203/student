@@ -50,6 +50,12 @@ main.table {
     align-items: center;
 }
 
+.MuiStack-root.css-1sazv7p-MuiStack-root {
+    float: right;
+    margin-right: 3%;
+    margin-top: 0.5%;
+}
+
 .table__header .input-group {
     width: 35%;
     height: 100%;
@@ -85,6 +91,7 @@ main.table {
 
 .table__body {
     width: 95%;
+    height: 80%;
     max-height: calc(89% - 1.6rem);
     background-color: #fffb;
 
@@ -120,14 +127,15 @@ td .img {
     height: 36px;
     margin-right: .5rem;
     border-radius: 50%;
-
     vertical-align: middle;
+    float: left;
 }
 
 table, th, td {
     border-collapse: collapse;
-    padding: 1rem;
+    padding: 0.8rem;
     text-align: left;
+    line-height: 36px;
 }
 
 thead th {
@@ -162,27 +170,6 @@ tbody tr td p,
 tbody tr td img {
     transition: .2s ease-in-out;
 }
-
-section.table__body table tbody tr td ion-icon.md.hydrated{
-    padding: 0 10px;
-    font-size: 25px;
-    color: red;
-}
-
-section.table__body table tbody tr td ion-icon.md.hydrated:hover{
-    border-radius: 5px;
-    background: #c7c9c9;
-}
-
-section.table__body table tbody tr td ion-icon.md.hydrated:nth-child(1){
-    color: orange;
-}
-
-section.table__body table tbody tr td ion-icon.md.hydrated:nth-child(1):hover{
-    color: #ef29d5;
-}
-
-
 
 tbody tr.hide td,
 tbody tr.hide td p {

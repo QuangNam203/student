@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import storage from "../../api/Storage";
+import storage from "../../API/Storage";
 // import { USER_TOKEN, USER_LOGIN_INFO } from '../constants'
 
 

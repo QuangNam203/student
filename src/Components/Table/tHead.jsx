@@ -6,7 +6,7 @@ function THead(props){
             <section className="table__header">
                 <h1>{props.title}</h1>
                     <div className="input-group">
-                        <input type="search" placeholder="Search Data..." onChange={()=>props.handleInput()}></input>
+                        <input type="search" placeholder="Search Data..."></input>
                         <ion-icon name="search-outline"></ion-icon>
                     </div>
                 <div className="export__file">

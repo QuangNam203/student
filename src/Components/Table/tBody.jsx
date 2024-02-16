@@ -1,10 +1,41 @@
-import { memo } from "react";
-
+import { memo, useState } from "react";
+import Avatar from '@mui/joy/Avatar';
+import { connect } from 'react-redux';
+import { selectPage, selectStudents } from "../../Redux/selectors/studentSelector";
+import { setListStudents } from "../../Redux/reducers/studentSlice";
+import studentAPI from "../../API/student/StudentAPI";
 function TBody(props){
-    const colunmList = props.TitleColunm.map(
+
+    const [TitleColunms,SetTitleColunm] = useState([
+        {dataFiled:'id', name:'ID', sort:false},
+        {dataFiled:'className', name:'Lớp', sort:false},
+        {dataFiled:'name', name:'Họ Tên', sort:false},
+        {dataFiled:'dateOfBirth', name:'Ngày Sinh', sort:false},
+        {dataFiled:'sex', name:'Giới Tính', sort:false},
+        {dataFiled:'sdt', name:'SĐT', sort:false},
+        {dataFiled:'email', name:'Email', sort:false},
+        {dataFiled:'course', name:'Ngành', sort:false},
+    ]);
+
+    const setStudent = props.setListStudents;
+
+    const colunmList = TitleColunms.map(
         (item,index)=>(
-            <th key={index}>
-                {item}
+            <th key={index} onClick={ async ()=>{
+                    const sort = item.sort;
+                    if(sort === false){
+                        const result = await studentAPI.getAll(props.page,10,`${item.dataFiled}`,`asc`);
+                        setStudent(result.content);
+                    }
+                    else{
+                        const result = await studentAPI.getAll(props.page,10,`${item.dataFiled}`,`desc`);
+                        setStudent(result.content);
+                    }
+                    item.sort = !item.sort;
+                    console.log(`${item.name}: ${item.sort}: ${props.page}`)
+                }
+            }>
+                {item.name}
                 <ion-icon name="arrow-up-outline"></ion-icon>
             </th>)
         )
@@ -12,18 +43,18 @@ function TBody(props){
     const dataList = props.datdRow.map(
         (item,index)=>(
             <tr key={index}>
-                <td> {item.id} </td>
-                <td> {item.className}</td>
-                <td> {item.name}</td>
-                <td> {item.dateOfBirth} </td>
-                <td> {item.sex}</td>
-                <td> {item.sdt}</td>
-                <td> {item.email}</td>
-                <td> {item.course}</td>
-                <td> 
-                    <ion-icon key={item.id} name="create-outline"></ion-icon> 
-                    <ion-icon key={item.id} name="trash-outline"></ion-icon>
-                </td>
+                <td key={index}> {item.id} </td>
+                <td key={index}> {item.className}</td>
+                <td key={index}> <Avatar className="img"></Avatar>{item.name}</td>
+                <td key={index}> {item.dateOfBirth} </td>
+                <td key={index}> {item.sex}</td>
+                <td key={index}> {item.sdt}</td>
+                <td key={index}> {item.email}</td>
+                <td key={index}> {item.course}</td>
+                {/* <td key={index}> 
+                    <ion-icon  name="create-outline"></ion-icon> 
+                    <ion-icon  name="trash-outline"></ion-icon>
+                </td> */}
             </tr>)
         )    
 
@@ -34,7 +65,6 @@ function TBody(props){
                     <thead>
                         <tr>
                             {colunmList}
-                            <th>Chức Năng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,4 +75,10 @@ function TBody(props){
         </>
     );
 }
-export default TBody;
+const mapStateToProps = state => {
+    return {
+        student : selectStudents(state),
+        page: selectPage(state)
+    }
+}
+export default connect(mapStateToProps,{setListStudents})(TBody);
