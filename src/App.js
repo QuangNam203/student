@@ -8,6 +8,7 @@ import DefaultPage from './Components/Pages/DefaultPage';
 
 import { publicRoutes } from './routers';
 import Table from './Components/Table/Table';
+import CustomFilter from './Components/Table/CustomFilter';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         })}
       </Routes>
     </>
-    // <CustomSearch/>
+    // <CustomFilter/>
   );
 }
 

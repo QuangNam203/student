@@ -42,7 +42,7 @@ function AddStudent() {
       </Form.Group>
 
 
-<Row className="mb-3">
+    <Row className="mb-3">
       <Form.Label>ngay sinh</Form.Label> 
       <input type='date' />
       <Form.Group className="mb-3" id="formGridCheckbox">

@@ -39,7 +39,6 @@ function SignInComponent(props) {
                     )
                     })
                     .required(()=><Alert variant="filled" severity="warning"></Alert>)
-
             })}
             validateOnChange={false}
             validateOnBlur={false}

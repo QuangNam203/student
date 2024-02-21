@@ -1,6 +1,7 @@
 import { memo, useMemo, useRef} from "react";
 import { connect } from "react-redux";
 import { setSearchStudents } from "../../Redux/reducers/studentSlice";
+import CustomFilter from "./CustomFilter";
 
 function THead(props){
     
@@ -26,13 +27,12 @@ function THead(props){
                     </div>
                 <div className="export__file">
                     <label for="export-file" className="export__file-btn" title="Export File"></label>
-                    <input type="checkbox" id="export-file"></input>
+                    {/* <input type="checkbox" id="export-file"></input> */}
                     <div className="export__file-options">
                         <label>Export As &nbsp; &#10140;</label>
-                        <label for="export-file" id="toPDF">PDF <img src={"../../images/pdf.png"} alt=""/></label>
-                        <label for="export-file" id="toJSON">JSON <img src="images/json.png" alt=""></img></label>
-                        <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></img></label>
-                        <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></img></label>
+                        <label for="export-file" id="toPDF">
+                            <CustomFilter/>
+                        </label>
                     </div>
                 </div>
             </section>

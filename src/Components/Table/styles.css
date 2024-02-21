@@ -44,7 +44,6 @@ main.table {
     height: 10%;
     background-color: #fff4;
     padding: .8rem 1rem;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -273,15 +272,15 @@ thead th.active,tbody td.active {
     cursor: pointer;
 }
 
-.export__file input {
+.export__file>input {
     display: none;
 }
 
 .export__file .export__file-options {
     position: absolute;
     right: 0;
-    
-    width: 12rem;
+    height: 16rem;
+    width: 14rem;
     border-radius: .5rem;
     overflow: hidden;
     text-align: center;
@@ -295,13 +294,37 @@ thead th.active,tbody td.active {
     transition: .2s;
 }
 
+.export__file .export__file-options>form{
+    background: white;
+    height: 100%;
+}
+.export__file .export__file-options>label{
+    background-color: #86e49d !important;
+    width: 100%;
+    display: inline-block;
+    height: 20%;
+    justify-content: center;
+}
+.export__file .export__file-options>form input{
+    border-radius: 8px;
+    border: 1px solid #d3c6c6;
+    padding: 4px;
+    outline: 1px pink;
+}
+.export__file .export__file-options>form button{
+    padding: 4px 13px;
+    border: none;
+    background: #23dd29;
+    border-radius: 13px;
+}
+
 .export__file input:checked + .export__file-options {
     opacity: 1;
     transform: scale(1);
     z-index: 100;
 }
 
-.export__file .export__file-options label{
+.export__file .export__file-options label.export__file-btn{
     display: block;
     width: 100%;
     padding: .6rem 0;
@@ -314,12 +337,12 @@ thead th.active,tbody td.active {
     transition: .2s ease-in-out;
 }
 
-.export__file .export__file-options label:first-of-type{
+/* .export__file .export__file-options label:first-of-type{
     padding: 1rem 0;
     background-color: #86e49d !important;
-}
+} */
 
-.export__file .export__file-options label:hover{
+.export__file .export__file-options label.export__file-btn:hover{
     transform: scale(1.05);
     background-color: #fff;
     cursor: pointer;

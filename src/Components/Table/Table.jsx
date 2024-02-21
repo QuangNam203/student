@@ -8,10 +8,22 @@ import { selectPage, selectSize, selectStudents, selectTotalSize } from "../../R
 import { setListStudents, setPageStudents, setSearchStudents, setSizeStudents, setTotalSizeStudents } from "../../Redux/reducers/studentSlice";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import CustomFilter from "./CustomFilter";
+import { Formik, Field, Form, ErrorMessage, FastField } from 'formik';
+import * as Yup from 'yup';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import {setSearchSpecifi } from "../../Redux/reducers/specificationSlice";
+
 
 function Table(props){
 
     const [search,setSearch] = useState('');
+    const [min,setMin] = useState();
+    const [max,setMax] = useState();
+    const [filter,setFilter] = useState('');
 
     const setStudent = props.setListStudents;
     const setPage = props.setPageStudents;
@@ -50,36 +62,41 @@ function Table(props){
         }
     }
 
+    useEffect(()=>{
+        if(inputRef.current.value === null && inputRef.current.value === undefined){
+            const getAllStudent = async ()=>{
+                const result = await studentAPI.getAll(props.page,10,'id','desc',search);
+                console.log(result);
+    
+                setStudent(result.content);
+                setTotalSize(result.totalPages);
+            }
+            getAllStudent();
+        }
+    })
+
     return(
-            <main className="table" id="customers_table">
-               <section className="table__header">
-                    <h1>Managament</h1>
-                        <div className="input-group">
-                            <input 
-                                type="search" 
-                                placeholder="Search Data..." 
-                                ref={inputRef}
-                                onKeyDown={handleEventEnter}
-                            ></input>
-                            <ion-icon name="search-outline"></ion-icon>
-                        </div>
-                    <div className="export__file">
-                        <label for="export-file" className="export__file-btn" title="Export File"></label>
-                        <input type="checkbox" id="export-file"></input>
-                        <div className="export__file-options">
-                            <label>Export As &nbsp; &#10140;</label>
-                            <label for="export-file" id="toPDF">PDF <img src={"../../images/pdf.png"} alt=""/></label>
-                            <label for="export-file" id="toJSON">JSON <img src="images/json.png" alt=""></img></label>
-                            <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></img></label>
-                            <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></img></label>
-                        </div>
-                    </div>
-                </section>
-                <TBody datdRow={props.student} />
-                <Stack spacing={2}>
-                    <Pagination count={props.totalSize} page={props.page} color="primary" onChange={handleChangePage}/>
-                </Stack>
-            </main>
+        <main className="table" id="customers_table">
+            <section className="table__header">
+            <h1>Managament</h1>
+                <div className="input-group">
+                        <input
+                            type="search" 
+                            placeholder="Search Data..." 
+                            ref={inputRef}
+                            onKeyDown={handleEventEnter}
+                        ></input>
+                    <ion-icon name="search-outline"></ion-icon>
+                </div>
+            <div className="export__file">
+                <CustomFilter/>
+            </div>
+            </section>
+            <TBody datdRow={props.student} />
+            <Stack spacing={2}>
+                <Pagination count={props.totalSize} page={props.page} color="primary" onChange={handleChangePage}/>
+            </Stack>
+        </main>
     );
 }
 
@@ -92,4 +109,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps,{setListStudents,setPageStudents,setSizeStudents,setTotalSizeStudents,setSearchStudents})(Table);
+export default connect(mapStateToProps,{
+    setListStudents,setPageStudents,setSizeStudents,setTotalSizeStudents,setSearchStudents,
+    setSearchSpecifi
+})(Table);
