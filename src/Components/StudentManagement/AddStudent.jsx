@@ -1,66 +1,65 @@
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+
 
 import './AddStudent.css'
 
 function AddStudent() {
   return (
-      <Form className='form_add' >
+    <div className='Body_add' >
+      <div className='container_add'>
+    <div className='title'></div>
+    <form >
+      <div className='user-details'>
+        <div className='input-box'>
+          <span className='details'>ten sinh vien</span>
+          <input type='text' placeholder='full name' required />
+        </div>
+        <div className='input-box'>
+          <span className='details'>ma sinh vien</span>
+          <input type='text' placeholder=' name' required />
+        </div>
+        <div className='input-box'>
+          <span className='details'>ten</span>
+          <input type='text' placeholder='selection' required />
+        </div>
+        <div className='input-box'>
+          <span className='details'>phone</span>
+          <input type='number' placeholder='only number' required />
+        </div>
+        <div className='input-box'>
+          <span className='details'>nganh</span>
+          <input type='text' placeholder='ma nganh' required />
+        </div>
+        <div className='input-box'>
+          <span className='details'>Email</span>
+          <input type='text' placeholder='Gmail' required />
+        </div>
+        <div className='gender-details'>
+          <input type='radio' name="gender" id='dot-1'/>
+          <input type='radio' name="gender" id='dot-2'/>
+          <input type='radio' name="gender" id='dot-3'/>
+          <span className='gender-title'>Gender</span>
+          <div className='category'>
+            <label for="dot-1">
+              <span className='dot one'></span>
+              <span className='gender'>nam</span>
+            </label>
+            <label for="dot-2">
+              <span className='dot two'></span>
+              <span className='gender'>nu</span>
+            </label>
+            <label for="dot-3">
+              <span className='dot three'></span>
+              <span className='gender'>other</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div className='button'>
+        <input type='submit' value={"them"} />
+      </div>
+    </form>
+  </div></div>
       
-        <Form.Group className="mb-3" as={Col} controlId="formGridEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-
-        <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridCity">
-          <Form.Label>sdt</Form.Label>
-          <Form.Control placeholder='only number' />
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridState">
-          <Form.Label>tên lớp</Form.Label>
-          <Form.Select defaultValue="Choose...">
-            <option>Choose...</option>
-            <option>...</option>
-            <option>72dctm22</option>
-          </Form.Select>
-        </Form.Group>
-
-      </Row>
-
-      <Form.Group className="mb-3" controlId="formGridAddress1">
-        <Form.Label>mã sinh viên</Form.Label>
-        <Form.Control placeholder="nhập mã sinh viên" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formGridAddress2">
-        <Form.Label>tên sinh vien</Form.Label>
-        <Form.Control placeholder="HỌ , tên đệm , tên" />
-      </Form.Group>
-
-
-<Row className="mb-3">
-      <Form.Label>ngay sinh</Form.Label> 
-      <input type='date' />
-      <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Nam" />
-      </Form.Group>
-      </Row>
-
-      <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Nu" />
-      </Form.Group>
-
-
-      
-
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
     
   );
 }

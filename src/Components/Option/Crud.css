@@ -7,7 +7,7 @@
     height: 100%; /* Chiều cao của phần tử */
     background-color: #f0f0f0; /* Màu nền */
     position: absolute; /* Định vị tuyệt đối */
-    right: -200px; /* Đẩy phần tử ra khỏi phần hiển thị ban đầu */
+    right: -500px; /* Đẩy phần tử ra khỏi phần hiển thị ban đầu */
     top: 50%; /* Canh lề trên theo chiều dọc */
     transform: translateY(-50%); /* Dịch chuyển theo chiều dọc để căn giữa */
     animation: slideFromRight 0.5s forwards; /* Sử dụng animation slideFromRight trong 0.5s */background-color: #fff5;

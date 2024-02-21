@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import AddStudent from '../StudentManagement/AddStudent.jsx'
 import './Crud.css'
 
 function Crud() {
@@ -18,6 +19,8 @@ function Crud() {
             {<button onClick={handleClose}>X</button>}
             1 là form ở đây 
             2 là các nút hiển thị chức năng thêm sửa xóa ở đây
+            <br/>
+            <AddStudent/>
         </div>
         
         }

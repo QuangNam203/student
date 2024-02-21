@@ -1,6 +1,8 @@
+import Crud from "../../Option/Crud"; 
 function Home(){
     return(
-        <div>Home</div>
+        // <div>Home</div>
+        < Crud/>
     );
 }
 
