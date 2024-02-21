@@ -1,16 +1,37 @@
 .option{
     float: left;
+    position: relative;
+    z-index: 100;
+}
+.option .addStudent{
+  background: rgba(247, 247, 247, 0.603);
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  margin-right: 10px;
+  transition: 0.4s;
+}
 
+.option .addStudent:hover{
+  background: #fff;
+  transform: scale(1.15);
+}
+.option .addStudent ion-icon.md.hydrated{
+  font-size: 28px;
 }
 .hinden_content {
     width: 500px; /* Độ rộng của phần tử */
     height: 100%; /* Chiều cao của phần tử */
-    background-color: #f0f0f0; /* Màu nền */
+    /* background-color: #f0f0f0; Màu nền */
     position: absolute; /* Định vị tuyệt đối */
-    right: -200px; /* Đẩy phần tử ra khỏi phần hiển thị ban đầu */
-    top: 50%; /* Canh lề trên theo chiều dọc */
-    transform: translateY(-50%); /* Dịch chuyển theo chiều dọc để căn giữa */
-    animation: slideFromRight 0.5s forwards; /* Sử dụng animation slideFromRight trong 0.5s */background-color: #fff5;
+    right: -500px; /* Đẩy phần tử ra khỏi phần hiển thị ban đầu */
+    /* top: 50%; /* Canh lề trên theo chiều dọc */
+    /* transform: translateY(-50%); Dịch chuyển theo chiều dọc để căn giữa */
+    animation: slideFromRight 0.5s forwards; /* Sử dụng animation slideFromRight trong 0.5s */
+    /* background-color: #fff5; */
 
   }
   

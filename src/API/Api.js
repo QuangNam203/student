@@ -10,11 +10,11 @@ const axiosClient = axios.create({
 axiosClient.interceptors.request.use(async (config) => {
     // Handle token here ...
     // if token exists
-    const token = storage.getToken();
-    console.log(token);
-    if(token !== null && token !== undefined){
-        config.headers.Authorization = token;
-    }
+    // const token = storage.getToken();
+    // console.log(token);
+    // if(token !== null && token !== undefined){
+    //     config.headers.Authorization = token;
+    // }
 
     return config;
 });

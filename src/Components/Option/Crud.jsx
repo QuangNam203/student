@@ -1,23 +1,23 @@
 import { useState } from 'react';
 
+import AddStudent from '../StudentManagement/AddStudent.jsx'
 import './Crud.css'
 
 function Crud() {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(!show);
+  const handleShow = () => setShow(!show);
 
   return (
     <div className='option'>
-        <button onClick={handleShow}>option</button>
+        <div className='addStudent' onClick={handleShow}>
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </div>
         {show && 
-        
         <div  className='hinden_content'>
-            nội dung hiển thị
-            {<button onClick={handleClose}>X</button>}
-            1 là form ở đây 
-            2 là các nút hiển thị chức năng thêm sửa xóa ở đây
+            <br/>
+            <AddStudent/>
         </div>
         
         }

@@ -16,7 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import {setSearchSpecifi } from "../../Redux/reducers/specificationSlice";
-
+import Crud from '../Option/Crud';
 
 function Table(props){
 
@@ -31,11 +31,11 @@ function Table(props){
 
     useEffect(()=>{
         const getAllStudent = async ()=>{
-            const result = await studentAPI.getAll(props.page,10,'id','desc',search);
-            console.log(result);
+            // const result = await studentAPI.getAll(props.page,10,'id','desc',search);
+            // console.log(result);
 
-            setStudent(result.content);
-            setTotalSize(result.totalPages);
+            // setStudent(result.content);
+            // setTotalSize(result.totalPages);
         }
         getAllStudent();
     },[setStudent,props.page,search])
@@ -89,6 +89,7 @@ function Table(props){
                     <ion-icon name="search-outline"></ion-icon>
                 </div>
             <div className="export__file">
+                <Crud />
                 <CustomFilter/>
             </div>
             </section>

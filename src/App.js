@@ -9,11 +9,14 @@ import DefaultPage from './Components/Pages/DefaultPage';
 import { publicRoutes } from './routers';
 import Table from './Components/Table/Table';
 import CustomFilter from './Components/Table/CustomFilter';
+import Crud from './Components/Option/Crud';
+
 
 function App() {
   return (
   // <SignInUpForm/>
   // <AddStudent/>
+  // <Crud />
     <>
       <Routes>
         {publicRoutes.map((item,index)=>{
@@ -25,7 +28,6 @@ function App() {
         })}
       </Routes>
     </>
-    // <CustomFilter/>
   );
 }
 

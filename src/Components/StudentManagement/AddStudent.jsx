@@ -1,67 +1,94 @@
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-
 import './AddStudent.css'
+import { Formik, Field, Form, ErrorMessage, FastField } from 'formik';
+import * as Yup from 'yup';
+import CustomInputComponent from './CustomInputComponent';
 
 function AddStudent() {
   return (
-      <Form className='form_add' >
-      
-        <Form.Group className="mb-3" as={Col} controlId="formGridEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
+    <Formik
+    initialValues={
+        {
+           name:'',
+           dateOfBirth:'',
+           sex:'',
+           sdt:'',
+           email:'',
+           addres:''
+        }
+    }
+    validationSchema={
+    Yup.object({
+        minFilter: Yup.number()
+            .positive("Must the grean 0 And integer")
+            .integer(),
+        maxFilter: Yup.number()
+            .positive("Must the grean 0 And integer")
+            .integer(),
+        })}
 
-        <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridCity">
-          <Form.Label>sdt</Form.Label>
-          <Form.Control placeholder='only number' />
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridState">
-          <Form.Label>tên lớp</Form.Label>
-          <Form.Select defaultValue="Choose...">
-            <option>Choose...</option>
-            <option>...</option>
-            <option>72dctm22</option>
-          </Form.Select>
-        </Form.Group>
-
-      </Row>
-
-      <Form.Group className="mb-3" controlId="formGridAddress1">
-        <Form.Label>mã sinh viên</Form.Label>
-        <Form.Control placeholder="nhập mã sinh viên" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formGridAddress2">
-        <Form.Label>tên sinh vien</Form.Label>
-        <Form.Control placeholder="HỌ , tên đệm , tên" />
-      </Form.Group>
-
-
-    <Row className="mb-3">
-      <Form.Label>ngay sinh</Form.Label> 
-      <input type='date' />
-      <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Nam" />
-      </Form.Group>
-      </Row>
-
-      <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Nu" />
-      </Form.Group>
-
-
-      
-
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-    
+    validateOnChange={false}
+    validateOnBlur={false}
+    onSubmit={(values)=>{
+       console.log(values);
+    }}    
+    >
+      {({resetForm})=>(
+        <div className='Body_add' >
+          <div className='container_add'>
+            <div className='title'></div>
+            <Form >
+              <div className='user-details'>
+                <FastField 
+                  name="name"
+                  type="text"
+                  placeholder="Họ Tên"
+                  label="Họ Tên"
+                  component={CustomInputComponent}
+                />
+                <FastField 
+                  name="dateOfBirth"
+                  type="text"
+                  placeholder="Ngày sinh"
+                  label="Ngày sinh"
+                  component={CustomInputComponent}
+                />
+                <label>
+                  <Field type="radio" name="sex" value="MALE" />
+                  MALE
+                  <>-</>
+                  <Field type="radio" name="sex" value="FEMALE" />
+                  FEMALE
+                </label>
+                <FastField 
+                  name="sdt"
+                  type="number"
+                  placeholder="Phone"
+                  label="Phone"
+                  component={CustomInputComponent}
+                />
+                <FastField 
+                  name="email"
+                  type="text"
+                  placeholder="Email"
+                  label="Email"
+                  component={CustomInputComponent}
+                />
+                <FastField 
+                  name="addres"
+                  type="text"
+                  placeholder="addres"
+                  label="addres"
+                  component={CustomInputComponent}
+                />
+              </div>
+              <div className='button'>
+                <input type='submit' value={"them"} />
+              </div>
+            </Form>
+          </div>
+        </div>
+      )}
+    </Formik>
   );
 }
 
