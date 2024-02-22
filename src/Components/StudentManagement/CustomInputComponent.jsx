@@ -7,6 +7,7 @@ function CustomInputComponent({
         <div className='input-box'>
             <span className='details'>{props.label}</span>
             <input {...field} {...props} required />
+            {touched[field.name] && errors[field.name] && <div>{errors[field.name]}</div>}
         </div>
     );
 };

@@ -8,6 +8,7 @@ import { TableBody } from '@mui/material';
 import { Table } from '@mui/material';
 import { TableCell } from '@mui/material';
 import { TableRow } from '@mui/material';
+import AlertDeleteModal from "../Modal/DeleteComponent";
 
 function TBody(props){
 
@@ -47,35 +48,37 @@ function TBody(props){
     
     const dataList = props.datdRow.map(
         (item,index)=>(
-            <TableRow key={index}>
+            <tr key={index}>
                 <td key={index}> {item.id} </td>
-                <td key={index}> {item.className}</td>
+                <td key={index}> {item.clazzName}</td>
                 <td key={index}> <Avatar className="img"></Avatar>{item.name}</td>
                 <td key={index}> {item.dateOfBirth} </td>
                 <td key={index}> {item.sex}</td>
                 <td key={index}> {item.sdt}</td>
                 <td key={index}> {item.email}</td>
-                <td key={index}> {item.course}</td>
-                {/* <td key={index}> 
-                    <ion-icon  name="create-outline"></ion-icon> 
-                    <ion-icon  name="trash-outline"></ion-icon>
-                </td> */}
-            </TableRow>)
+                <td key={index}> {item.clazzCareersName}</td>
+                <td key={index}> 
+                    <AlertDeleteModal/>
+                </td>
+            </tr>)
         )    
 
     return(
         <>
             <section className="table__body">
-                <Table >
+                <table >
                     <thead>
                         <tr>
                             {colunmList}
+                            <th>
+                                Option
+                            </th>
                         </tr>
                     </thead>
-                    <TableBody >
+                    <tbody >
                         {dataList}
-                    </TableBody>
-                </Table>
+                    </tbody>
+                </table>
             </section>
         </>
     );

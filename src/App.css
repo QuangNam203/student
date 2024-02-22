@@ -31,3 +31,7 @@ body {
   align-items: center;
   display: grid;
 }
+.MuiSnackbar-root.MuiSnackbar-sizeMd.MuiSnackbar-colorNeutral.MuiSnackbar-variantOutlined.MuiSnackbar-anchorOriginTopRight.css-j53w93-JoySnackbar-root{
+  padding: 0;
+  border: none;
+}

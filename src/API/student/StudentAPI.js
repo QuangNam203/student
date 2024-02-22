@@ -19,13 +19,16 @@ const getByID = (id) => {
     return Api.get(`${url}/${id}`);
 };
 
-const create = (name, username, email, password) => {
-    const body = {
-        name : name,
-        username: username,
-        email: email,
-        password: password
-    }
+const existsBySDT = (sdt) => {
+    return Api.get(`${url}/existsSDT/${sdt}`);
+};
+
+const existsByEmail = (email) => {
+    return Api.get(`${url}/existsEmail/${email}`);
+};
+
+
+const createStudent = (body) => {
     return Api.post(url, body);
 };
 
@@ -38,6 +41,6 @@ const deleteByID = (id) => {
 }
 
 // export
-const studentAPI = {getAll, getByID, create, updateByID, deleteByID }
+const studentAPI = {getAll, getByID, createStudent, updateByID, deleteByID,existsBySDT,existsByEmail}
 export default studentAPI;
 

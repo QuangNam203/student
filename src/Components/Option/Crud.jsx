@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import OptionContext from './OptionContext.jsx';
 
 import AddStudent from '../StudentManagement/AddStudent.jsx'
 import './Crud.css'
@@ -17,7 +18,9 @@ function Crud() {
         {show && 
         <div  className='hinden_content'>
             <br/>
-            <AddStudent/>
+            <OptionContext.Provider value={handleShow}>
+              <AddStudent/>
+            </OptionContext.Provider>
         </div>
         
         }
