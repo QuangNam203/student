@@ -4,6 +4,7 @@
 import Home from "../Components/Pages/Home"
 import SignInUpForm from "../Components/Pages/Login/SignInUpForm"
 import Table from "../Components/Table/Table"
+import Class_M from "../Components/Pages/Class"
 
 
 export const publicRoutes = [
@@ -14,7 +15,12 @@ export const publicRoutes = [
     {
         path: '/Home',
         element: Home,
-    },{
+    },
+    {
+        path: '/Class',
+        element: Class_M,
+    },
+    {
         path: '/Login',
         element: SignInUpForm,
     },

@@ -1,6 +1,6 @@
 import React from 'react'
 import SignInUpForm from "../Components/Pages/Login/SignInUpForm";
-import storage from '../api/Storage';
+import storage from '../API/Storage';
 
 function withAuth(Authenticatedcomponent){
 
