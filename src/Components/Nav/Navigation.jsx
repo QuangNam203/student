@@ -11,7 +11,7 @@ function Nav(props){
       {title:'Home',icon:'home-outline',name:'Home'},
       {title:'Student',icon:'people-outline',name:'Student'},
       {title:'Score',icon:'chatbox-ellipses-outline',name:'Score'},
-      {title:'Slass',icon:'home-outline',name:'Class'},
+      {title:'Class',icon:'home-outline',name:'Class'},
       {title:'Subject',icon:'library-outline',name:'Subject'},
       {title:'Price',icon:'pricetag-outline',name:'Price'},
     ]
