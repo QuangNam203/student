@@ -32,8 +32,6 @@ function Table(props){
     useEffect(()=>{
         const getAllStudent = async ()=>{
             const result = await studentAPI.getAll(props.page,10,'id','desc',search);
-            console.log(result);
-
             setStudent(result.content);
             setTotalSize(result.totalPages);
         }

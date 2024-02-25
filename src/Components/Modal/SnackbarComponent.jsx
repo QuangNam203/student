@@ -3,7 +3,7 @@ import Button from '@mui/joy/Button';
 import Snackbar from '@mui/joy/Snackbar';
 import { keyframes } from '@mui/system';
 import { useContext } from 'react';
-import SnackbarContext from './ModalContext';
+import {SnackbarContext} from './ModalContext';
 import Alert from '@mui/material/Alert';
 
 const inAnimation = keyframes`
@@ -64,7 +64,7 @@ export default function SnackbarComponent(props) {
             variant="filled"
             sx={{ width: '100%' }}
         >
-            This is a success Alert inside a Snackbar!
+            {SnackContext.content}
         </Alert>
     </Snackbar>
     </>

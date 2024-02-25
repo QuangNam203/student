@@ -5,8 +5,12 @@ function CustomInputComponent({
 }) {
     return (
         <div className='input-box'>
-            <span className='details'>{props.label}</span>
-            <input {...field} {...props} required />
+            <label htmlFor={field.name}>{props.label}</label>
+            <input 
+            style={{'padding': '4px;',
+                    'border-radius': '10px;',
+                    'border': '1px solid #c1bdbd;'}}
+            {...field} {...props} required />
             {touched[field.name] && errors[field.name] && <div>{errors[field.name]}</div>}
         </div>
     );

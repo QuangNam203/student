@@ -10,18 +10,28 @@ import DeleteForever from '@mui/icons-material/DeleteForever';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import SnackbarComponent from './SnackbarComponent';
 import { useContext } from 'react';
-import SnackbarContext from './ModalContext';
+import {SnackbarContext} from './ModalContext';
 import studentAPI from '../../API/student/StudentAPI';
+import { connect } from "react-redux";
+import { setListStudents } from '../../Redux/reducers/studentSlice';
 
-export default function AlertDeleteModal(props) {
+function AlertDeleteModal(props) {
     const [open, setOpen] = React.useState(false);
     const SnackContext = useContext(SnackbarContext);
+
+    const setStudent = props.setListStudents;
+
+    const RefrestTable = async ()=>{
+        const result = await studentAPI.getAll();
+        setStudent(result.content);
+    }
 
     const handleDelete = async ()=>{
         setOpen(false);
         SnackContext.setOpen(!SnackContext.open);
         const id = props.studentID
         await studentAPI.deleteByID(id);
+        RefrestTable();
     }
 
     const handleClose = ()=>{
@@ -61,3 +71,5 @@ export default function AlertDeleteModal(props) {
         </React.Fragment>
     );
 }
+
+export default connect(null,{setListStudents})(AlertDeleteModal);

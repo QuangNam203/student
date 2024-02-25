@@ -37,7 +37,7 @@ const updateByID = (id, body) => {
 }
 
 const deleteByID = (id) => {
-    return Api.delete(`${url}/${id}`);
+    return Api.delete(`${url}/delete/${id}`);
 }
 
 // export

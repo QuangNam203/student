@@ -9,6 +9,7 @@ import { Table } from '@mui/material';
 import { TableCell } from '@mui/material';
 import { TableRow } from '@mui/material';
 import AlertDeleteModal from "../Modal/DeleteComponent";
+import UpdateModal from "../Modal/UpdateComponent";
 
 function TBody(props){
 
@@ -48,7 +49,7 @@ function TBody(props){
     
     const dataList = props.datdRow.map(
         (item,index)=>(
-            <tr key={index}>
+            <tr key={index} onDoubleClick={()=>console.log("ok")}>
                 <td key={index}> {item.id} </td>
                 <td key={index}> {item.clazzName}</td>
                 <td key={index}> <Avatar className="img"></Avatar>{item.name}</td>
@@ -57,8 +58,9 @@ function TBody(props){
                 <td key={index}> {item.sdt}</td>
                 <td key={index}> {item.email}</td>
                 <td key={index}> {item.clazzCareersName}</td>
-                <td key={index}> 
-                    <AlertDeleteModal/>
+                <td key={index} style={{'textAlign':'center'}}> 
+                    <UpdateModal ID={item.id}/>
+                    <AlertDeleteModal studentID={item.id}/>
                 </td>
             </tr>)
         )    
@@ -70,7 +72,7 @@ function TBody(props){
                     <thead>
                         <tr>
                             {colunmList}
-                            <th>
+                            <th style={{'textAlign':'center'}}>
                                 Option
                             </th>
                         </tr>
