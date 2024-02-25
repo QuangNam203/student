@@ -3,22 +3,40 @@
 // import withAuth from '../HOC/withAuth'
 import Home from "../Components/Pages/Home"
 import SignInUpForm from "../Components/Pages/Login/SignInUpForm"
-import Table from "../Components/Table/Table"
-import Class_M from "../Components/Pages/Class"
-
+import Student from "../Components/Pages/Student/index"
+import Score from "../Components/Pages/Score/index"
+import Class from "../Components/Pages/Class/index"
+import Subject from "../Components/Pages/Subject/index"
+import Price from "../Components/Pages/Price/index"
 
 export const publicRoutes = [
     {
         path: '/',
-        element: Table,
+        element: Home,
     },
     {
         path: '/Home',
         element: Home,
     },
     {
+        path: '/Student',
+        element: Student,
+    },
+    {
         path: '/Class',
-        element: Class_M,
+        element: Class,
+    },
+    {
+        path: '/Score',
+        element: Score,
+    },
+    {
+        path: '/Subject',
+        element: Subject,
+    },
+    {
+        path: '/Price',
+        element: Price,
     },
     {
         path: '/Login',

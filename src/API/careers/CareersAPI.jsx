@@ -1,3 +1,4 @@
+// ngành
 import Api from '../Api';
 
 const url = "/student";
@@ -22,27 +23,6 @@ const getByID = (id) => {
 const existsBySDT = (sdt) => {
     return Api.get(`${url}/existsSDT/${sdt}`);
 };
-
-const existsByEmail = (email) => {
-    return Api.get(`${url}/existsEmail/${email}`);
-};
-
-
-const createStudent = (body) => {
-    return Api.post(url, body);
-};
-
-const updateByID = (id,name,dateOfBirth,sex,sdt,email,addres) => {
-    const body = {
-        name,
-        dateOfBirth,
-        sex,
-        sdt,
-        email,
-        addres
-    }
-    return Api.put(`${url}/upStudent/${id}`,body);
-}
 
 const deleteByID = (id) => {
     return Api.delete(`${url}/delete/${id}`);

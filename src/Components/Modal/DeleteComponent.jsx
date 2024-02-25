@@ -14,6 +14,7 @@ import {SnackbarContext} from './ModalContext';
 import studentAPI from '../../API/student/StudentAPI';
 import { connect } from "react-redux";
 import { setListStudents } from '../../Redux/reducers/studentSlice';
+import { selectPage } from '../../Redux/selectors/studentSelector';
 
 function AlertDeleteModal(props) {
     const [open, setOpen] = React.useState(false);
@@ -22,7 +23,7 @@ function AlertDeleteModal(props) {
     const setStudent = props.setListStudents;
 
     const RefrestTable = async ()=>{
-        const result = await studentAPI.getAll();
+        const result = await studentAPI.getAll(props.page);
         setStudent(result.content);
     }
 
@@ -71,5 +72,10 @@ function AlertDeleteModal(props) {
         </React.Fragment>
     );
 }
+const mapStateToProps = state =>{
+    return{
+        page: selectPage(state)
+    }
+}
 
-export default connect(null,{setListStudents})(AlertDeleteModal);
+export default connect(mapStateToProps,{setListStudents})(AlertDeleteModal);
