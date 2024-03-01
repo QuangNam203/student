@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { setListStudents, setPageStudents, setSearchStudents, setTotalSizeStudents } from "../../../Redux/reducers/studentSlice";
 import Table from "../../Table/Table";
 import { connect } from "react-redux";
-import studentAPI from "../../../API/student/StudentAPI"
+import classAPI from "../../../API/class/ClassAPI"
 import { selectPage, selectSearch, selectSize, selectStudents, selectTotalSize } from "../../../Redux/selectors/studentSelector";
 import AlertDeleteModal from "../../Modal/DeleteComponent";
 import UpdateModal from "../../Modal/UpdateComponent";
 import Avatar from '@mui/joy/Avatar';
+import studentAPI from "../../../API/student/StudentAPI";
 
 function Student(props){
 
@@ -36,7 +37,7 @@ function Student(props){
 
 
     const findByID = async (id)=>{
-        return await studentAPI.getByID(id);
+        return await classAPI.getByID(id);
     }
 
     const dataList = props.student.map(

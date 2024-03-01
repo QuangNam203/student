@@ -19,8 +19,8 @@ const getByID = (id) => {
     return Api.get(`${url}/${id}`);
 };
 
-const existsByClassName = (classname) => {
-    return Api.get(`${url}/existsClassName/${classname}`);
+const existsByClassName = (clazzName) => {
+    return Api.get(`${url}/existsClassName/${clazzName}`);
 };
 
 const existsByMajorName = (major) => {
@@ -41,6 +41,6 @@ const deleteByID = (id) => {
 }
 
 // export
-const classAPI = {getAll, getByID, createStudent, updateByID, deleteByID,existsBySDT,existsByEmail}
+const classAPI = {getAll, getByID, createClass, updateByID, deleteByID,existsByMajorName,existsByClassName}
 export default classAPI;
 

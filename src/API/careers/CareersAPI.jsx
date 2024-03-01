@@ -19,16 +19,25 @@ const getAll = (page = 1,size = 10,sortFiled = 'id',sortType = 'desc',search =''
 const getByID = (id) => {
     return Api.get(`${url}/${id}`);
 };
+const createCareers =(clazzCareersName)=>{
+    return Api.post(`${url}/${clazzCareersName}`);
+}
 
-const existsBySDT = (sdt) => {
-    return Api.get(`${url}/existsSDT/${sdt}`);
+const existsByID = (id) => {
+    return Api.get(`${url}/existsSubject/${id}`);
 };
+const updateByID = (id,clazzCareersName,) => {
+    const body = {
+        clazzCareersName
+    }
+    return Api.put(`${url}/upMajor/${id}`,body);
+}
 
 const deleteByID = (id) => {
     return Api.delete(`${url}/delete/${id}`);
 }
 
 // export
-const studentAPI = {getAll, getByID, createStudent, updateByID, deleteByID,existsBySDT,existsByEmail}
+const studentAPI = {getAll, getByID, createCareers, existsByID,updateByID, deleteByID}
 export default studentAPI;
 

@@ -2,6 +2,13 @@ import Table from "../../Table/Table";
 
 
 function Price(props){
+    const [Colunms,SetTitleColunm] = useState([
+        {dataFiled:'id', name:'ID', sort:false},
+        {dataFiled:'subject', name:'môn' , sort:false},
+        {dataFiled:'clazzCareersName', name:'Ngành', sort:false},
+        {dataFiled:'price', name:'giá' , sort:false},
+
+    ]);
 
     // const setStudent = props.setListStudents;
     // const setPage = props.setPageStudents;

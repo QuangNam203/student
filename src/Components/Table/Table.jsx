@@ -3,6 +3,8 @@ import TBody from './TBody';
 import * as React from 'react';
 import { connect } from "react-redux";
 import { setPageStudents, setSearchStudents } from "../../Redux/reducers/studentSlice";
+import { setPageClass, setSearchClass } from "../../Redux/reducers/classSlice";
+import { setPageSubject, setSearchSubject } from "../../Redux/reducers/subjectSlice";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import CustomFilter from "./CustomFilter";
@@ -10,7 +12,9 @@ import Crud from '../Option/Crud';
 
 function Table(props){
 
-    const setPage = props.setPageStudents;
+    // const setPage = props.setPageStudents;
+    // const setPage = props.setPageClass;
+    const setPage = props.setPageSubject;
 
     const handleChangePage = async (event, value) => {
         setPage(value);
@@ -27,6 +31,8 @@ function Table(props){
                 value =``;
             }
             props.setSearchStudents(value);
+            props.setSearchClass(value);
+            props.setSearchSubject(value);
         }
     }
 
@@ -56,4 +62,4 @@ function Table(props){
     );
 }
 
-export default connect(null,{setSearchStudents,setPageStudents})(Table);
+export default connect(null,{setSearchStudents,setPageStudents,setSearchClass,setPageClass,setPageSubject,setSearchSubject})(Table);

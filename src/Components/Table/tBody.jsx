@@ -1,12 +1,22 @@
 import Avatar from '@mui/joy/Avatar';
 import { connect } from 'react-redux';
-import { selectPage, selectStudents } from "../../Redux/selectors/studentSelector";
+// import { selectPage, selectStudents } from "../../Redux/selectors/studentSelector";
 import { setListStudents } from "../../Redux/reducers/studentSlice";
 import studentAPI from "../../API/student/StudentAPI";
+
+// import { selectPage, selectClass } from "../../Redux/selectors/classSelector";
+import { setListClass } from "../../Redux/reducers/classSlice";
+import classAPI from "../../API/class/ClassAPI";
+
+import { selectPage, selectSubject } from "../../Redux/selectors/subjectSelector";
+import { setListSubject } from "../../Redux/reducers/subjectSlice";
+import subjectAPI from '../../API/Subject/SubjectAPI';
 
 function TBody(props){
 
     const setStudent = props.setListStudents;
+    const setClass = props.setListClass;
+    const setSubjet = props.setListSubject;
 
     const colunmList = props.TitleColunms.map(
         (item,index)=>(
@@ -51,8 +61,10 @@ function TBody(props){
 }
 const mapStateToProps = state => {
     return {
-        student : selectStudents(state),
+        // class: selectClass(state),
+        // student : selectStudents(state),
+        subject:selectSubject(state),
         page: selectPage(state)
     }
 }
-export default connect(mapStateToProps,{setListStudents})(TBody);
+export default connect(mapStateToProps,{setListStudents,setListClass,setListSubject})(TBody);
